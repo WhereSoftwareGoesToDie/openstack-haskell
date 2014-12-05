@@ -1,11 +1,14 @@
 module System.OpenStack.Types
 (
-    OpenStackConfig
+    OpenStackConfig,
+    AuthToken
 ) where
 
+import           Data.Aeson.TH
 import           Data.ByteString (ByteString)
 import qualified Data.ByteString as S
 import           Data.Text
+import           Data.Time.Clock
 import           Data.UUID
 import           Network.URI
 
@@ -15,4 +18,10 @@ data OpenStackConfig = OpenStackConfig {
     , _username :: Text
     , _password :: Text
     , _tenant   :: Text
+}
+
+-- | An authentication token as returned by the Keystone API.
+data AuthToken = AuthToken {
+      _token   :: UUID
+    , _expires :: UTCTime
 }
