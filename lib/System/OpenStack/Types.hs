@@ -3,12 +3,12 @@ module System.OpenStack.Types
     OpenStackConfig
 ) where
 
-import Network.URI
-import Data.Text
+import           Data.Text
+import           Network.URI
 
 data OpenStackConfig = OpenStackConfig {
-      _authURL :: URI
+      _authURL  :: URI
     , _username :: Text
     , _password :: Text
-    , _tenant :: Text
+    , _tenant   :: Text
 }
